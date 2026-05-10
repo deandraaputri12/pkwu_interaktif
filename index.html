@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKWU Interaktif - Platform Belajar Masa Depan</title>
+    <meta name="description" content="Platform pembelajaran interaktif PKWU untuk siswa masa depan.">
+    
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">PKWU Interaktif</div>
+            <div class="nav-links">
+                <a href="#" class="nav-item active" data-section="home">Beranda</a>
+                <a href="#" class="nav-item" data-section="materi">Materi</a>
+                <a href="#" class="nav-item" data-section="kuis">Kuis</a>
+                <a href="#" class="nav-item" data-section="progres">Progres</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section-content active">
+            <div class="hero">
+                <h1>Kuasai Masa Depan <br><span style="color: var(--primary)">Wirausaha</span> Anda</h1>
+                <p>Belajar Prakarya dan Kewirausahaan dengan cara yang lebih interaktif, menyenangkan, dan terukur.</p>
+                
+                <div class="options-grid">
+                    <div class="card" onclick="showSection('materi')">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Materi Pembelajaran</h3>
+                        <p>Akses modul pembelajaran lengkap mulai dari konsep dasar hingga strategi bisnis mutakhir.</p>
+                    </div>
+                    <div class="card" onclick="showSection('kuis')">
+                        <i class="fas fa-vial"></i>
+                        <h3>Kuis Interaktif</h3>
+                        <p>Uji pemahaman Anda dengan tantangan kuis yang dirancang untuk mengasah logika bisnis.</p>
+                    </div>
+                    <div class="card" onclick="showSection('progres')">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Progres Belajar</h3>
+                        <p>Pantau perkembangan Anda secara real-time dengan diagram statistik yang transparan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materi Section -->
+        <section id="materi" class="section-content">
+            <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <h1>Materi Pembelajaran</h1>
+            <p>Materi akan segera diperbarui. Silakan kembali lagi nanti.</p>
+            <div id="materi-list" class="options-grid" style="margin-top: 2rem;">
+                <div class="card" onclick="showMateriDetail('materi1')">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Materi 1. Wirausaha</h3>
+                    <p>Memahami konsep dasar, tujuan, karakteristik, serta kunci sukses dan kegagalan wirausaha.</p>
+                </div>
+                <div class="card" onclick="showMateriDetail('materi2')">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Materi 2. Peluang Usaha</h3>
+                    <p>Menganalisis jenis-jenis usaha, sumber ide, dan metode analisis peluang bisnis yang potensial.</p>
+                </div>
+                <div class="card" onclick="showMateriDetail('materi3')">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Materi 3. Desain & Kemasan</h3>
+                    <p>Konsep desain dan kemasan produk barang, fungsi, jenis, serta bentuk desain kemasan.</p>
+                </div>
+                <div class="card" onclick="showMateriDetail('materi4')">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Materi 4. Hak Intelektual</h3>
+                    <p>Mengenal Hak Kekayaan Intelektual (HKI), tujuan, dan kedudukannya sebagai hak kebendaan.</p>
+                </div>
+                <div class="card" onclick="showMateriDetail('materi5')">
+                    <i class="fas fa-tools"></i>
+                    <h3>Materi 5. Pembuatan Prototipe</h3>
+                    <p>Proses kerja pembuatan contoh atau prototipe produk barang dan jasa secara sistematis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materi Detail Section -->
+        <section id="materi-detail" class="section-content">
+            <button class="back-btn" onclick="showSection('materi')"><i class="fas fa-arrow-left"></i> Kembali ke List Materi</button>
+            <div id="materi-body" class="chart-container" style="padding: 3rem; text-align: left;">
+                <!-- Content will be injected here via JS -->
+            </div>
+        </section>
+
+        <!-- Kuis Section -->
+        <section id="kuis" class="section-content">
+            <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <h1>Kuis Interaktif</h1>
+            <p>Uji pengetahuan kewirausahaan Anda.</p>
+            
+            <div id="quiz-root">
+                <div class="chart-container" style="text-align: center; padding: 4rem;">
+                    <i class="fas fa-vial" style="font-size: 4rem; color: var(--primary); margin-bottom: 2rem; display: block;"></i>
+                    <h2>Persiapan Kuis</h2>
+                    <p style="margin-bottom: 2rem;">Siapkan diri Anda untuk menguji pemahaman materi PKWU.</p>
+                    <button class="primary-btn" style="padding: 1rem 2rem; border-radius: 0.5rem; background: var(--primary); color: white; border: none; cursor: pointer; font-weight: 600;" onclick="startQuiz()">Mulai Kuis Sekarang</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Progres Section -->
+        <section id="progres" class="section-content">
+            <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Kembali</button>
+            
+            <div class="dashboard-header" style="margin-bottom: 3rem;">
+                <h1>Dashboard Progres</h1>
+                <p>Pantau pencapaian dan aktivitas belajar Anda secara real-time.</p>
+            </div>
+            
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="card stat-card">
+                    <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4 id="avg-score">0%</h4>
+                        <p>Rata-rata Skor</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--secondary);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4 id="completed-modules">0/5</h4>
+                        <p>Materi Selesai</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #22c55e;">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4 id="learning-streak">0 Hari</h4>
+                        <p>Belajar Beruntun</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-icon" style="background: rgba(244, 63, 94, 0.1); color: #f43f5e;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4 id="study-time">0 Menit</h4>
+                        <p>Waktu Belajar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                <div class="chart-container" style="min-height: 400px; padding: 2rem;">
+                    <h3 style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-chart-line" style="color: var(--primary)"></i>
+                        Tren Skor Kuis
+                    </h3>
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card" style="padding: 2rem;">
+                    <h3 style="margin-bottom: 1.5rem;">Capaian Badge</h3>
+                    <div id="badge-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <!-- Badges will be shown here -->
+                        <div class="badge locked" title="Selesaikan Materi 1">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="badge locked" title="Skor 100% pertama">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="badge locked" title="Belajar 7 hari">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="badge locked" title="Selesaikan semua kuis">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 4rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2026 PKWU Interaktif. Dibuat dengan ❤️ untuk Pendidikan Indonesia.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
